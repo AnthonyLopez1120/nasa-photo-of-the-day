@@ -3,13 +3,19 @@ import axios from "axios";
 import NasaCard from "./NasaCard";
 
 const NasaData = ()=>{
-    const [photo, setPhoto] = useState("")
+    const [photo, setPhoto] = useState([])
+    const [title, setTitle] = useState([])
+    const [date, setDate] = useState([])
+    const [info, setInfo] = useState([])
 
     useEffect(()=>{
         axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
         .then(res =>{
             console.log(res)
             setPhoto(res.data.url)
+            setTitle(res.data.title)
+            setDate(res.data.date)
+            setInfo(res.data.explanation)
         })
         .catch(err =>{
             console.log('errooooooor')
@@ -17,6 +23,12 @@ const NasaData = ()=>{
     },[])
     return (
     <div>
+        <NasaCard 
+            pic = {photo}
+            date = {date}
+            title = {title} 
+            info = {info}       
+        />
 
     </div>
    )
