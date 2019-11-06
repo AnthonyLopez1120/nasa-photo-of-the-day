@@ -21,6 +21,7 @@ const NasaData = ()=>{
             console.log('errooooooor')
         })
     },[])
+    
     return (
     <div>
         <NasaCard 

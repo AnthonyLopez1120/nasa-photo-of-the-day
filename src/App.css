@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+.picDiv{
+  width:25%;
+  height:25%;
+}
